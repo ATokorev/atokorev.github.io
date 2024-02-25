@@ -39,7 +39,35 @@
     </header>
 
     <main>
+        <h1>Want to disscus your project?</h1>
+        <img src="contact.jpg" alt="contact page image">
+        <!-- This image is from pexels Photo by Jan van der Wolf from Pexels: https://www.pexels.com/photo/mailboxes-attached-to-a-wall-19130897/ -->
+        <form>
+            <div>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
         
+                <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="john@email.com">
+                </div>
+        
+                <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required placeholder="Music video">
+                </div>
+            </div>
+        
+            <div class="form-group message-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required placeholder="yea this one is not quite there yet lol"></textarea>
+            </div>
+        
+            <button class="cta" type="submit">Send!</button>
+        </form>
+
     </main>
 
     <footer>

@@ -253,7 +253,52 @@ p{
 article{
     margin-bottom:var(--size-m);
 }
+.idk{
+    margin: var(--size-l) var(--size-s);
+
+}
 /* end of Services */
+/* Contact me */
+form {
+    display: flex;
+    max-width: 60rem;
+    margin: var(--size-s) auto;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: var(--size-s);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--size-xxs);
+    text-align: left;
+    color: var(--color-darkish);
+    font-family: var(--font-fam-sefir);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: var(--size-xs);
+    margin-bottom: var(--size-xs);
+    box-sizing: border-box;
+    background-color: var(--color-very-light);
+    border: bone;
+}
+
+.message-field {
+    flex: 2;
+    max-width: 45rem;
+    min-width: 45rem;
+    resize: none;
+}
+#message{
+    resize: none;
+}
+
+/* footer */
 footer {
     min-height:var(--size-xl);
     margin-top: auto;
