@@ -285,7 +285,8 @@ textarea {
     margin-bottom: var(--size-xs);
     box-sizing: border-box;
     background-color: var(--color-very-light);
-    border: bone;
+    border: none;
+    border-radius: var(--size-xxs);
 }
 
 .message-field {
