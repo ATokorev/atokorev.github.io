@@ -299,6 +299,10 @@ textarea {
     resize: none;
 }
 
+
+.contact-img{
+    max-width: 60rem;
+}
 /* footer */
 footer {
     min-height:var(--size-xl);
