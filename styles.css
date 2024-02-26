@@ -247,7 +247,7 @@ p{
 }
 
 .servive-cta{
-    align-self: flex-end;
+    align-self: flex-start;
     justify-self: flex-start;    
 }
 article{
