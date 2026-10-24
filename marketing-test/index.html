@@ -480,7 +480,7 @@ h1.welcome { margin: 0 0 12px; font-size: 28px; line-height: 1.15; font-weight: 
     renderNav();
     var n = answeredCount();
     $("sb-left").textContent = review ? "Reviewing question " + (i + 1) + " of " + N : (n === N ? "All questions answered. Press Finish to submit." : n + " of " + N + " answered");
-    $("sb-mid").textContent = review ? correctCount() + " / " + N + " correct" : "Keys: A–D answer, ← → move";
+    $("sb-mid").textContent = review ? correctCount() + " / " + N + " correct" : "Keys: 1–4 answer, Space next, ← → move";
   }
 
   function button(label, opts) {
@@ -604,12 +604,23 @@ h1.welcome { margin: 0 0 12px; font-size: 28px; line-height: 1.15; font-weight: 
       return;
     }
     if (e.altKey || e.ctrlKey || e.metaKey) return;
+    // Spacebar: Start test on the start screen; Next > / Skip > during the test and review
+    if (e.key === " " || e.code === "Space") {
+      if (S.screen === "start") { e.preventDefault(); newTest(); return; }
+      if (S.screen === "test") { e.preventDefault(); if (!e.repeat) next(); return; }
+      if (S.screen === "review") { e.preventDefault(); if (!e.repeat) go(1); return; }
+      return;
+    }
     if (S.screen !== "test" && S.screen !== "review") return;
     var k = e.key.toLowerCase();
     var idx = ["a", "b", "c", "d"].indexOf(k); if (idx === -1) idx = ["1", "2", "3", "4"].indexOf(k);
     if (idx !== -1 && S.screen === "test") { e.preventDefault(); choose(idx); return; }
     if (e.key === "ArrowRight" && document.activeElement && document.activeElement.type !== "radio") { e.preventDefault(); S.screen === "test" ? next() : go(1); }
     if (e.key === "ArrowLeft" && document.activeElement && document.activeElement.type !== "radio") { e.preventDefault(); go(-1); }
+  });
+
+  document.addEventListener("keyup", function (e) {
+    if ((e.key === " " || e.code === "Space") && $("dlg").hidden && !(e.altKey || e.ctrlKey || e.metaKey)) e.preventDefault();
   });
 
   $("btn-start").addEventListener("click", newTest);
